@@ -1,0 +1,26 @@
+{
+  "generator-jhipster": {
+    "additionalSubGenerators": "createtodoapp",
+    "baseName": "azure-container-apps",
+    "cli": true,
+    "entities": [],
+    "generators": {
+      "app": {
+        "command": false,
+        "priorities": ["composing"],
+        "sbs": true,
+        "written": true
+      },
+      "createtodoapp": {
+        "command": true,
+        "priorities": ["prompting", "writing", "end"],
+        "sbs": false,
+        "written": true
+      }
+    },
+    "jhipsterVersion": "8.6.0",
+    "localBlueprint": false,
+    "sampleWritten": true,
+    "subGenerators": []
+  }
+}

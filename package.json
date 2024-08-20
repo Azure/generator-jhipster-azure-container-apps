@@ -1,0 +1,57 @@
+{
+  "name": "generator-jhipster-azure-container-apps",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Description for Azure Container Apps",
+  "keywords": [
+    "yeoman-generator",
+    "jhipster-blueprint",
+    "jhipster-8"
+  ],
+  "license": "UNLICENSED",
+  "type": "module",
+  "bin": {
+    "jhipster-azure-container-apps": "cli/cli.cjs"
+  },
+  "files": [
+    "cli",
+    "generators",
+    "!**/__*",
+    "!**/*.snap",
+    "!**/*.spec.?(c|m)js"
+  ],
+  "scripts": {
+    "ejslint": "ejslint generators/**/*.ejs",
+    "lint": "eslint .",
+    "lint-fix": "npm run ejslint && npm run lint -- --fix",
+    "prepare": "husky",
+    "prettier-check": "prettier --check \"{,**/}*.{md,json,yml,html,cjs,mjs,js,cts,mts,ts,tsx,css,scss,vue,java}\"",
+    "prettier-format": "prettier --write \"{,**/}*.{md,json,yml,html,cjs,mjs,js,cts,mts,ts,tsx,css,scss,vue,java}\"",
+    "pretest": "npm run prettier-check && npm run lint",
+    "test": "vitest run",
+    "update-snapshot": "vitest run --update",
+    "vitest": "vitest"
+  },
+  "dependencies": {
+    "generator-jhipster": "8.6.0"
+  },
+  "devDependencies": {
+    "ejs-lint": "2.0.0",
+    "eslint": "9.5.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.1.3",
+    "globals": "15.6.0",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.2",
+    "vitest": "1.6.0",
+    "yeoman-test": ">=8.2.0"
+  },
+  "engines": {
+    "generator-jhipster": "8.6.0",
+    "node": "^18.19.0 || >= 20.6.1"
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ]
+}

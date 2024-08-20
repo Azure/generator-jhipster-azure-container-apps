@@ -1,33 +1,57 @@
-# Project
+# generator-jhipster-azure-container-apps
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+> JHipster blueprint, azure-container-apps blueprint for JHipster
 
-As the maintainer of this project, please make a few updates:
+[![NPM version][npm-image]][npm-url]
+[![Generator][github-generator-image]][github-generator-url]
+[![Samples][github-samples-image]][github-samples-url]
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+# Introduction
 
-## Contributing
+This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+# Prerequisites
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you have JHipster basic knowledge:
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+- [JHipster](https://www.jhipster.tech/)
 
-## Trademarks
+# Installation
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+To install or update this blueprint:
+
+```bash
+npm install -g generator-jhipster-azure-container-apps
+```
+
+# Usage
+
+To use this blueprint, run the below command
+
+```bash
+jhipster-azure-container-apps
+```
+
+You can look for updated azure-container-apps blueprint specific options by running
+
+```bash
+jhipster-azure-container-apps app --help
+```
+
+And looking for `(blueprint option: azure-container-apps)` like
+
+## Pre-release
+
+To use an unreleased version, install it using git.
+
+```bash
+npm install -g jhipster/generator-jhipster-azure-container-apps#main
+jhipster --blueprints azure-container-apps --skip-jhipster-dependencies
+```
+
+[npm-image]: https://img.shields.io/npm/v/generator-jhipster-azure-container-apps.svg
+[npm-url]: https://npmjs.org/package/generator-jhipster-azure-container-apps
+[github-generator-image]: https://github.com/jhipster/generator-jhipster-azure-container-apps/actions/workflows/generator.yml/badge.svg
+[github-generator-url]: https://github.com/jhipster/generator-jhipster-azure-container-apps/actions/workflows/generator.yml
+[github-samples-image]: https://github.com/jhipster/generator-jhipster-azure-container-apps/actions/workflows/samples.yml/badge.svg
+[github-samples-url]: https://github.com/jhipster/generator-jhipster-azure-container-apps/actions/workflows/samples.yml
