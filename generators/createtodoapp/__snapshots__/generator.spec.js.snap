@@ -1,0 +1,291 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SubGenerator createtodoapp of azure-container-apps JHipster blueprint > run > should succeed 1`] = `
+{
+  ".devcontainer/devcontainer.json": {
+    "stateCleared": "modified",
+  },
+  ".gitattributes": {
+    "stateCleared": "modified",
+  },
+  ".github/CODE_OF_CONDUCT.md": {
+    "stateCleared": "modified",
+  },
+  ".github/ISSUE_TEMPLATE.md": {
+    "stateCleared": "modified",
+  },
+  ".github/PULL_REQUEST_TEMPLATE.md": {
+    "stateCleared": "modified",
+  },
+  ".github/workflows/azure-dev.yml": {
+    "stateCleared": "modified",
+  },
+  ".github/workflows/build-with-maven.yml": {
+    "stateCleared": "modified",
+  },
+  ".github/workflows/create-release.yml": {
+    "stateCleared": "modified",
+  },
+  ".github/workflows/docker-image.yml": {
+    "stateCleared": "modified",
+  },
+  ".gitignore": {
+    "stateCleared": "modified",
+  },
+  ".mvn/wrapper/maven-wrapper.jar": {
+    "stateCleared": "modified",
+  },
+  ".mvn/wrapper/maven-wrapper.properties": {
+    "stateCleared": "modified",
+  },
+  ".yo-rc.json": {
+    "stateCleared": "modified",
+  },
+  "CHANGELOG.md": {
+    "stateCleared": "modified",
+  },
+  "CONTRIBUTING.md": {
+    "stateCleared": "modified",
+  },
+  "Dockerfile": {
+    "stateCleared": "modified",
+  },
+  "LICENSE": {
+    "stateCleared": "modified",
+  },
+  "LICENSE.md": {
+    "stateCleared": "modified",
+  },
+  "NOTICE.txt": {
+    "stateCleared": "modified",
+  },
+  "README.md": {
+    "stateCleared": "modified",
+  },
+  "assets/web.png": {
+    "stateCleared": "modified",
+  },
+  "azure.yaml": {
+    "stateCleared": "modified",
+  },
+  "client/Dockerfile": {
+    "stateCleared": "modified",
+  },
+  "client/README.md": {
+    "stateCleared": "modified",
+  },
+  "client/entrypoint.js": {
+    "stateCleared": "modified",
+  },
+  "client/entrypoint.sh": {
+    "stateCleared": "modified",
+  },
+  "client/nginx/nginx.conf": {
+    "stateCleared": "modified",
+  },
+  "client/package-lock.json": {
+    "stateCleared": "modified",
+  },
+  "client/package.json": {
+    "stateCleared": "modified",
+  },
+  "client/pom.xml": {
+    "stateCleared": "modified",
+  },
+  "client/public/favicon.ico": {
+    "stateCleared": "modified",
+  },
+  "client/public/index.html": {
+    "stateCleared": "modified",
+  },
+  "client/public/manifest.json": {
+    "stateCleared": "modified",
+  },
+  "client/public/web.config": {
+    "stateCleared": "modified",
+  },
+  "client/src/@types/window.d.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/App.css": {
+    "stateCleared": "modified",
+  },
+  "client/src/App.test.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/App.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/actions/actionCreators.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/actions/common.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/actions/itemActions.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/actions/listActions.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/telemetry.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/telemetryContext.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/todoContext.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/todoItemDetailPane.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/todoItemListPane.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/components/todoListMenu.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/config/index.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/index.css": {
+    "stateCleared": "modified",
+  },
+  "client/src/index.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/layout/header.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/layout/layout.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/layout/sidebar.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/models/applicationState.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/models/index.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/models/todoItem.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/models/todoList.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/pages/homePage.tsx": {
+    "stateCleared": "modified",
+  },
+  "client/src/react-app-env.d.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/reducers/index.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/reducers/listsReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/reducers/selectedItemReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/reducers/selectedListReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/reportWebVitals.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/services/itemService.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/services/listService.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/services/restService.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/services/telemetryService.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/setupTests.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/ux/styles.ts": {
+    "stateCleared": "modified",
+  },
+  "client/src/ux/theme.ts": {
+    "stateCleared": "modified",
+  },
+  "client/tsconfig.json": {
+    "stateCleared": "modified",
+  },
+  "infra/abbreviations.json": {
+    "stateCleared": "modified",
+  },
+  "infra/main.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/main.parameters.json": {
+    "stateCleared": "modified",
+  },
+  "infra/modules/postgresql/flexibleserver.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/modules/springapps/springappsConsumption.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/modules/springapps/springappsStandard.bicep": {
+    "stateCleared": "modified",
+  },
+  "mvnw": {
+    "stateCleared": "modified",
+  },
+  "mvnw.cmd": {
+    "stateCleared": "modified",
+  },
+  "pom.xml": {
+    "stateCleared": "modified",
+  },
+  "web/README.md": {
+    "stateCleared": "modified",
+  },
+  "web/pom.xml": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/SimpleTodoApplication.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/configuration/RFC3339DateFormat.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/configuration/WebConfiguration.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/model/TodoItem.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/model/TodoList.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/model/TodoState.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/repository/TodoItemRepository.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/repository/TodoListRepository.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/web/HomeController.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/java/com/mycompany/myapp/web/TodoListsController.java": {
+    "stateCleared": "modified",
+  },
+  "web/src/main/resources/application.yml": {
+    "stateCleared": "modified",
+  },
+}
+`;
