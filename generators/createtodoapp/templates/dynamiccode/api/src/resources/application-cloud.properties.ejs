@@ -1,0 +1,14 @@
+# Import KeyVault secrets as properties
+spring.cloud.azure.keyvault.secret.property-sources[0].enabled=true
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=${AZURE_KEY_VAULT_ENDPOINT}
+
+<%_ if (prodDatabaseType === 'postgresql') { _%>
+spring.datasource.url=${SPRING-DATASOURCE-URL}
+spring.datasource.username=${SPRING-DATASOURCE-USERNAME}
+spring.datasource.password=${SPRING-DATASOURCE-PASSWORD}
+<%_ } _%>
+<%_ if (prodDatabaseType === 'mongodb') { _%>
+spring.data.mongodb.uri=${AZURE_COSMOS_CONNECTION_STRING:#{null}}
+<%_ } _%>
+
+

@@ -1,0 +1,83 @@
+package <%= packageName %>.controller;
+
+import <%= packageName %>.api.ListsApi;
+import <%= packageName %>.model.TodoList;
+import <%= packageName %>.repository.TodoListRepository;
+import java.math.BigDecimal;
+import java.net.URI;
+import java.util.List;
+<%_ if (prodDatabaseType === 'postgresql') { _%>
+import java.util.Optional;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+<%_ } _%>
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+@RestController
+public class TodoListsController implements ListsApi {
+
+    private final TodoListRepository todoListRepository;
+
+    public TodoListsController(TodoListRepository todoListRepository) {
+        this.todoListRepository = todoListRepository;
+    }
+
+    public ResponseEntity<TodoList> createList(TodoList todoList) {
+        final TodoList savedTodoList = todoListRepository.save(todoList);
+        URI location = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(savedTodoList.getId())
+            .toUri();
+        return ResponseEntity.created(location).body(savedTodoList);
+    }
+
+    public ResponseEntity<Void> deleteListById(String listId) {
+        <%_ if (prodDatabaseType === 'postgresql') { _%>
+        Optional<TodoList> todoList = todoListRepository.findById(listId);
+        if (todoList.isPresent()) {
+            todoListRepository.deleteById(listId);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+        <%_ } _%>
+        <%_ if (prodDatabaseType === 'mongodb') { _%>
+        return todoListRepository
+            .findById(listId)
+            .map(l -> todoListRepository.deleteTodoListById(l.getId()))
+            .map(l -> ResponseEntity.noContent().<Void>build())
+                .orElseGet(() -> ResponseEntity.notFound().build());
+        <%_ } _%>
+    }
+
+    public ResponseEntity<TodoList> getListById(String listId) {
+        return todoListRepository
+            .findById(listId)
+            .map(ResponseEntity::ok)
+            .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    public ResponseEntity<List<TodoList>> getLists(BigDecimal top, BigDecimal skip) {
+        // no need to check nullity of top and skip, because they have default values.
+        <%_ if (prodDatabaseType === 'postgresql') { _%>
+        return ResponseEntity.ok(todoListRepository.findAll(PageRequest.of(skip.intValue(), top.intValue())).getContent());
+        <%_ } _%>
+        <%_ if (prodDatabaseType === 'mongodb') { _%>
+        return ResponseEntity.ok(todoListRepository.findAll(skip.intValue(), top.intValue()));
+        <%_ } _%>
+    }
+
+    public ResponseEntity<TodoList> updateListById(String listId, @Valid TodoList todoList) {
+        // make sure listId is set into the todoItem, otherwise it will create a new todo
+        // list.
+        todoList.setId(listId);
+        return todoListRepository
+            .findById(listId)
+            .map(t -> ResponseEntity.ok(todoListRepository.save(todoList)))
+            .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+}
