@@ -33,7 +33,7 @@ export default class extends BaseGenerator {
             type: 'list',
             name: 'prodDatabaseType',
             message: 'Which database would you like to use?',
-            choices: ['postgresql'],
+            choices: ['postgresql', 'mongodb'],
             default: 'postgresql',
           },
         ];
@@ -54,109 +54,161 @@ export default class extends BaseGenerator {
     return {
       ...super.writing,
       async writingTemplateTask() {
-        this.fs.copy(this.templatePath('client/'), this.destinationPath('client/'));
+        this.fs.copy(this.templatePath('src/web'), this.destinationPath('src/web/'));
+        this.fs.copy(this.templatePath('src/web/.dockerignore'), this.destinationPath('src/web/.dockerignore'));
+        this.fs.copy(this.templatePath('src/web/.gitignore'), this.destinationPath('src/web/.gitignore'));
+        this.fs.copy(this.templatePath('src/web/.eslintrc.cjs'), this.destinationPath('src/web/.eslintrc.cjs'));
+        this.fs.copy(this.templatePath('src/api'), this.destinationPath('src/api/'));
+        this.fs.copy(this.templatePath('src/api/.mvn'), this.destinationPath('src/api/.mvn'));
+        this.fs.copy(this.templatePath('src/api/.openapi-generator'), this.destinationPath('src/api/.openapi-generator'));
         this.fs.copy(this.templatePath('infra/'), this.destinationPath('infra/'));
 
         const packageFolder = this.todoAppProps.packageFolder;
 
+        var apiFiles = [
+          {
+            templates: [
+              {
+                file: 'dynamiccode/.vscode/launch.json',
+                renameTo: ctx => `.vscode/launch.json`,
+              },
+              {
+                file: 'dynamiccode/api/.openapi-generator/FILES',
+                renameTo: ctx => `src/api/.openapi-generator/FILES`,
+              },
+              {
+                file: 'dynamiccode/api/Dockerfile',
+                renameTo: ctx => `src/api/Dockerfile`,
+              },
+              {
+                file: 'dynamiccode/api/src/api/ApiUtil.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ApiUtil.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/api/ItemsApi.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ItemsApi.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/api/ListsApi.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ListsApi.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/configuration/RFC3339DateFormat.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/RFC3339DateFormat.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/configuration/StringToTodoStateConverter.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/StringToTodoStateConverter.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/configuration/WebConfiguration.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/WebConfiguration.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/model/TodoState.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoState.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/SimpleTodoApplication.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/SimpleTodoApplication.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/test/SimpleTodoApplicationTests.java',
+                renameTo: ctx => `src/api/src/test/java/${packageFolder}/SimpleTodoApplicationTests.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/resources/application.properties',
+                renameTo: ctx => `src/api/src/main/resources/application.properties`,
+              },
+              {
+                file: 'dynamiccode/api/src/resources/application-cloud.properties',
+                renameTo: ctx => `src/api/src/main/resources/application-cloud.properties`,
+              },
+              {
+                file: 'dynamiccode/api/src/resources/application-local.properties',
+                renameTo: ctx => `src/api/src/main/resources/application-local.properties`,
+              },
+              {
+                file: 'dynamiccode/api/pom.xml',
+                renameTo: ctx => `src/api/pom.xml`,
+              },
+              {
+                file: 'dynamiccode/api/src/controller/TodoItemsController.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/controller/TodoItemsController.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/controller/TodoListsController.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/controller/TodoListsController.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/model/TodoItem.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoItem.java`,
+              },
+              {
+                file: 'dynamiccode/api/src/model/TodoList.java',
+                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoList.java`,
+              },
+              {
+                file: 'dynamiccode/infra/db.bicep',
+                renameTo: ctx => `infra/app/db.bicep`,
+              },
+              {
+                file: 'dynamiccode/infra/main.bicep',
+                renameTo: ctx => `infra/main.bicep`,
+              },
+            ],
+          },
+        ]
+
+        if(this.todoAppProps.prodDatabaseType == "mongodb") {
+          apiFiles[0].templates.push({
+            file: 'dynamiccode/api/src/configuration/MongoDBConfiguration.java',
+            renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/MongoDBConfiguration.java`,
+          })
+          apiFiles[0].templates.push({
+            file: 'dynamiccode/api/src/repository/mongodb/TodoItemRepository.java',
+            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+          },
+          {
+            file: 'dynamiccode/api/src/repository/mongodb/TodoListRepository.java',
+            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+          })
+        } else if(this.todoAppProps.prodDatabaseType == "postgresql") {
+          apiFiles[0].templates.push({
+            file: 'dynamiccode/api/src/repository/psql/TodoItemRepository.java',
+            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+          },
+          {
+            file: 'dynamiccode/api/src/repository/psql/TodoListRepository.java',
+            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+          })
+        }
+
+
         await this.writeFiles({
           sections: {
-            maven: [
+            base: [
               {
                 templates: [
-                  { file: 'mvnw', noEjs: true },
-                  { file: 'mvnw.cmd', noEjs: true },
                   { file: 'azure.yaml', noEjs: true },
                   { file: '.gitattributes', noEjs: true },
                   { file: '.gitignore', noEjs: false },
-                  { file: 'Dockerfile', noEjs: true },
-                  { file: 'CHANGELOG.md', noEjs: true },
-                  { file: 'CONTRIBUTING.md', noEjs: true },
                   { file: 'LICENSE', noEjs: true },
-                  { file: 'LICENSE.md', noEjs: true },
-                  { file: 'NOTICE.txt', noEjs: true },
                   { file: 'README.md', noEjs: true },
-                  { file: '.mvn/wrapper/maven-wrapper.jar', noEjs: true },
-                  { file: '.mvn/wrapper/maven-wrapper.properties', noEjs: true },
                   { file: '.devcontainer/devcontainer.json', noEjs: true },
-                  { file: '.github/CODE_OF_CONDUCT.md', noEjs: true },
-                  { file: '.github/ISSUE_TEMPLATE.md', noEjs: true },
-                  { file: '.github/PULL_REQUEST_TEMPLATE.md', noEjs: true },
-                  { file: '.github/workflows/build-with-maven.yml', noEjs: true },
                   { file: '.github/workflows/azure-dev.yml', noEjs: true },
-                  { file: '.github/workflows/create-release.yml', noEjs: true },
-                  { file: '.github/workflows/docker-image.yml', noEjs: true },
+                  { file: '.github/workflows/terraform/azure-dev.yml', noEjs: true },
                   { file: 'assets/web.png', noEjs: true },
-                  { file: 'web/README.md', noEjs: true },
+                  { file: 'assets/resources.png', noEjs: true },
+                  { file: 'assets/resources-with-apim.png', noEjs: true },
+                  { file: 'assets/urls.png', noEjs: true },
+                  { file: '.vscode/extensions.json', noEjs: true },
+                  { file: '.vscode/tasks.json', noEjs: true },
+                  { file: 'OPTIONAL_FEATURES.md', noEjs: true },
                 ],
               },
             ],
-            client: [
-              {
-                templates: [
-                  {
-                    file: 'clientpom.xml',
-                    renameTo: ctx => `client/pom.xml`,
-                  },
-                ],
-              },
-            ],
-            web: [
-              {
-                templates: [
-                  { file: 'web/pom.xml' },
-                  {
-                    file: 'web/configuration/RFC3339DateFormat.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/configuration/RFC3339DateFormat.java`,
-                  },
-                  {
-                    file: 'web/configuration/WebConfiguration.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/configuration/WebConfiguration.java`,
-                  },
-                  {
-                    file: 'web/model/TodoItem.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/model/TodoItem.java`,
-                  },
-                  {
-                    file: 'web/model/TodoList.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/model/TodoList.java`,
-                  },
-                  {
-                    file: 'web/model/TodoState.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/model/TodoState.java`,
-                  },
-                  {
-                    file: 'web/repository/TodoItemRepository.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
-                  },
-                  {
-                    file: 'web/repository/TodoListRepository.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
-                  },
-                  {
-                    file: 'web/web/HomeController.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/web/HomeController.java`,
-                  },
-                  {
-                    file: 'web/web/TodoListsController.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/web/TodoListsController.java`,
-                  },
-                  {
-                    file: 'web/SimpleTodoApplication.java',
-                    renameTo: ctx => `web/src/main/java/${packageFolder}/SimpleTodoApplication.java`,
-                  },
-                  {
-                    file: 'web/application.yml',
-                    renameTo: ctx => `web/src/main/resources/application.yml`,
-                  },
-                ],
-              },
-            ],
-            parent: [
-              {
-                templates: [{ file: 'pom.xml' }],
-              },
-            ],
+            api: apiFiles,
           },
           context: this.todoAppProps,
         });
