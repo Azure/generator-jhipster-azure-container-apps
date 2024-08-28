@@ -56,7 +56,6 @@ export default class extends BaseGenerator {
       async writingTemplateTask() {
         this.fs.copy(this.templatePath('src/web'), this.destinationPath('src/web/'));
         this.fs.copy(this.templatePath('src/web/.dockerignore'), this.destinationPath('src/web/.dockerignore'));
-        this.fs.copy(this.templatePath('src/web/.gitignore'), this.destinationPath('src/web/.gitignore'));
         this.fs.copy(this.templatePath('src/web/.eslintrc.cjs'), this.destinationPath('src/web/.eslintrc.cjs'));
         this.fs.copy(this.templatePath('src/api'), this.destinationPath('src/api/'));
         this.fs.copy(this.templatePath('src/api/.mvn'), this.destinationPath('src/api/.mvn'));
