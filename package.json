@@ -33,8 +33,7 @@
     "vitest": "vitest"
   },
   "dependencies": {
-    "generator-jhipster": "8.6.0",
-    "generator-jhipster-azure-container-apps": "file:"
+    "generator-jhipster": "8.6.0"
   },
   "devDependencies": {
     "ejs-lint": "2.0.0",
