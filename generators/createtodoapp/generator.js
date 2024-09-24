@@ -224,8 +224,21 @@ export default class extends BaseGenerator {
           ${chalk.greenBright('The TODO template has been created successfully! 🎉')}
 
           ${chalk.magentaBright(`Run locally:`)}
+          ${chalk.cyan(`    back-end: "http://localhost:3100/")`)}
+          ${chalk.cyan(`    You can build manually under src/api with:`)}
           ${chalk.cyan(`    mvn clean package -DskipTests`)}
           ${chalk.cyan(`    java -jar web/target/${artifactName}-0.0.1-SNAPSHOT.jar`)}
+
+          ${chalk.cyan(`    front-end: "http://localhost:3000/")`)}
+          ${chalk.cyan(`    You can build manually under src/web with:`)}
+          ${chalk.cyan(`    npm run ci`)}
+          ${chalk.cyan(`    npm run dev`)}
+
+          ${chalk.magentaBright(`Deploy on Azure Container with:`)}
+          ${chalk.cyan(`    azd up`)}
+          
+          ${chalk.magentaBright(`Do you know that Azure Container Apps has built-in support for Java?`)}
+          ${chalk.cyan(`    https://learn.microsoft.com/azure/container-apps/java-overview`)}
         `);
       },
     };

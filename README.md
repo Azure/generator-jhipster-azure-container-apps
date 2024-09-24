@@ -1,14 +1,17 @@
-# generator-jhipster-azure-container-apps
+<div align="center">
+    <a href="https://start.jhipster.tech/generate-azure-application">
+        <img width="380" height="230" src="logo.png">
+    </a>
+    <h1>JHipster Azure Container Apps</h1>
+</div>
 
-> JHipster blueprint, azure-container-apps blueprint for JHipster
+---
 
 [![NPM version][npm-image]][npm-url]
-[![Generator][github-generator-image]][github-generator-url]
-[![Samples][github-samples-image]][github-samples-url]
 
 # Introduction
 
-This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
+JHipster Azure Container Apps enables developers to rapidly create and deploy full-stack Java applications on [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/java-overview) with minimal steps. This integration simplifies the deployment process, allowing seamless scalability and management for both frontend, backend and database services on Azure.
 
 # Prerequisites
 
@@ -16,17 +19,26 @@ As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you hav
 
 - [JHipster](https://www.jhipster.tech/)
 
-# Installation
+The following prerequisites arer equired to run this application locally. Please ensure that you have them all installed locally.
 
-To install or update this blueprint:
+- [Java 17 or later](https://learn.microsoft.com/en-us/java/openjdk/install) - for API backend
+- [Node.js](https://nodejs.org/) - for the Web frontend
+- [Maven](https://maven.apache.org/download.cgi) - for local build
+
+The following prerequisites arer equired to deploy this application to Azure.
+- Azure Subscription: [Try Azure Container Apps for free](https://azure.microsoft.com/products/container-apps#Pricing). You can start with the free tier: The first 180,000 vCPU per second, 360,000 GiB/s, and 2 million requests each month are free.
+- [Docker](https://www.docker.com/)
+- [Azure Developer CLI](https://aka.ms/azd-install)
+
+## 🚀 Get Started
 
 ```bash
 npm install -g generator-jhipster-azure-container-apps
 ```
 
-# Usage
+## 🚁 How to run locally
 
-To use this blueprint, run the below command
+To use JHipster Azure Container Apps, run the below command
 
 ```bash
 jhipster-azure-container-apps
@@ -38,16 +50,55 @@ You can look for updated azure-container-apps blueprint specific options by runn
 jhipster-azure-container-apps app --help
 ```
 
-And looking for `(blueprint option: azure-container-apps)` like
+To run locally:
 
-## Pre-release
-
-To use an unreleased version, install it using git.
+- For back-end, you can build manually under src/api with:
 
 ```bash
-npm install -g jhipster/generator-jhipster-azure-container-apps#main
-jhipster --blueprints azure-container-apps --skip-jhipster-dependencies
+mvn clean package -DskipTests
+java -jar web/target/${artifactName}-0.0.1-SNAPSHOT.jar
 ```
+
+- The back-end can be accessed at:
+
+```text
+http://localhost:3100/
+```
+
+- For front-end, you can build manually under src/web with:
+
+```bash
+npm run ci
+npm run dev
+```
+
+- The front-end can be accessed at:
+
+```text
+http://localhost:3000/
+```
+
+## 🎉 How to deploy on Azure for [free]((https://azure.microsoft.com/products/container-apps#Pricing))
+
+1. Log in to [azd](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd). Only required once per-install.
+   </br> `azd auth login`
+   - If you are on Windows, install [powershell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
+1. Navigate to the generated project directory and run
+   </br>`azd up`
+
+After the command is executed, you can see the following log signs that the deployment was successful.
+
+```text
+SUCCESS: Your up workflow to provision and deploy to Azure completed in <deployment-time>.
+```
+
+The output **Deploying service api** and **Deploying service web** are the endpoints to access the todo application.
+
+## ❤️ Next Steps
+
+Azure Container Apps has built-in Java support to enhance your Java applications with automatic memory fitting, diagnostics and managed spring componnets, [learn more](https://learn.microsoft.com/azure/container-apps/java-overview).
+You can easily turn on the Java support feature by clicking on the **manage** of the Development stack and choose **Java** on your overview page.
+![Java Stack](./javastack.png).
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-azure-container-apps.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-azure-container-apps
