@@ -23,7 +23,13 @@ const blueprint = packageFolderName.startsWith('jhipster-') ? `generator-${packa
       [blueprint]: version,
     },
     printBlueprintLogo: () => {
-      console.log('===================== JHipster azure-container-apps =====================');
+      console.log(' █████╗  ██████╗ █████╗ ');
+      console.log('██╔══██╗██╔════╝██╔══██╗');
+      console.log('███████║██║     ███████║');
+      console.log('██╔══██║██║     ██╔══██║');
+      console.log('██║  ██║╚██████╗██║  ██║');
+      console.log('╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝');
+      console.log('===================== JHipster Azure Container Apps =====================');
       console.log('');
     },
     lookups: [{ packagePaths: [packagePath] }],
