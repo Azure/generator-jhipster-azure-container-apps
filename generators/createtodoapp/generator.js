@@ -69,91 +69,91 @@ export default class extends BaseGenerator {
             templates: [
               {
                 file: 'dynamiccode/.vscode/launch.json',
-                renameTo: ctx => `.vscode/launch.json`,
+                renameTo: () => `.vscode/launch.json`,
               },
               {
                 file: 'dynamiccode/api/.openapi-generator/FILES',
-                renameTo: ctx => `src/api/.openapi-generator/FILES`,
+                renameTo: () => `src/api/.openapi-generator/FILES`,
               },
               {
                 file: 'dynamiccode/api/Dockerfile',
-                renameTo: ctx => `src/api/Dockerfile`,
+                renameTo: () => `src/api/Dockerfile`,
               },
               {
                 file: 'dynamiccode/api/src/api/ApiUtil.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ApiUtil.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/api/ApiUtil.java`,
               },
               {
                 file: 'dynamiccode/api/src/api/ItemsApi.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ItemsApi.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/api/ItemsApi.java`,
               },
               {
                 file: 'dynamiccode/api/src/api/ListsApi.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/api/ListsApi.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/api/ListsApi.java`,
               },
               {
                 file: 'dynamiccode/api/src/configuration/RFC3339DateFormat.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/RFC3339DateFormat.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/configuration/RFC3339DateFormat.java`,
               },
               {
                 file: 'dynamiccode/api/src/configuration/StringToTodoStateConverter.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/StringToTodoStateConverter.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/configuration/StringToTodoStateConverter.java`,
               },
               {
                 file: 'dynamiccode/api/src/configuration/WebConfiguration.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/WebConfiguration.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/configuration/WebConfiguration.java`,
               },
               {
                 file: 'dynamiccode/api/src/model/TodoState.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoState.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/model/TodoState.java`,
               },
               {
                 file: 'dynamiccode/api/src/SimpleTodoApplication.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/SimpleTodoApplication.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/SimpleTodoApplication.java`,
               },
               {
                 file: 'dynamiccode/api/src/test/SimpleTodoApplicationTests.java',
-                renameTo: ctx => `src/api/src/test/java/${packageFolder}/SimpleTodoApplicationTests.java`,
+                renameTo: () => `src/api/src/test/java/${packageFolder}/SimpleTodoApplicationTests.java`,
               },
               {
                 file: 'dynamiccode/api/src/resources/application.properties',
-                renameTo: ctx => `src/api/src/main/resources/application.properties`,
+                renameTo: () => `src/api/src/main/resources/application.properties`,
               },
               {
                 file: 'dynamiccode/api/src/resources/application-cloud.properties',
-                renameTo: ctx => `src/api/src/main/resources/application-cloud.properties`,
+                renameTo: () => `src/api/src/main/resources/application-cloud.properties`,
               },
               {
                 file: 'dynamiccode/api/src/resources/application-local.properties',
-                renameTo: ctx => `src/api/src/main/resources/application-local.properties`,
+                renameTo: () => `src/api/src/main/resources/application-local.properties`,
               },
               {
                 file: 'dynamiccode/api/pom.xml',
-                renameTo: ctx => `src/api/pom.xml`,
+                renameTo: () => `src/api/pom.xml`,
               },
               {
                 file: 'dynamiccode/api/src/controller/TodoItemsController.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/controller/TodoItemsController.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/controller/TodoItemsController.java`,
               },
               {
                 file: 'dynamiccode/api/src/controller/TodoListsController.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/controller/TodoListsController.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/controller/TodoListsController.java`,
               },
               {
                 file: 'dynamiccode/api/src/model/TodoItem.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoItem.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/model/TodoItem.java`,
               },
               {
                 file: 'dynamiccode/api/src/model/TodoList.java',
-                renameTo: ctx => `src/api/src/main/java/${packageFolder}/model/TodoList.java`,
+                renameTo: () => `src/api/src/main/java/${packageFolder}/model/TodoList.java`,
               },
               {
                 file: 'dynamiccode/infra/db.bicep',
-                renameTo: ctx => `infra/app/db.bicep`,
+                renameTo: () => `infra/app/db.bicep`,
               },
               {
                 file: 'dynamiccode/infra/main.bicep',
-                renameTo: ctx => `infra/main.bicep`,
+                renameTo: () => `infra/main.bicep`,
               },
             ],
           },
@@ -162,27 +162,27 @@ export default class extends BaseGenerator {
         if (this.todoAppProps.prodDatabaseType == 'mongodb') {
           apiFiles[0].templates.push({
             file: 'dynamiccode/api/src/configuration/MongoDBConfiguration.java',
-            renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/MongoDBConfiguration.java`,
+            renameTo: () => `src/api/src/main/java/${packageFolder}/configuration/MongoDBConfiguration.java`,
           });
           apiFiles[0].templates.push(
             {
               file: 'dynamiccode/api/src/repository/mongodb/TodoItemRepository.java',
-              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+              renameTo: () => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
             },
             {
               file: 'dynamiccode/api/src/repository/mongodb/TodoListRepository.java',
-              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+              renameTo: () => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
             },
           );
         } else if (this.todoAppProps.prodDatabaseType == 'postgresql') {
           apiFiles[0].templates.push(
             {
               file: 'dynamiccode/api/src/repository/psql/TodoItemRepository.java',
-              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+              renameTo: () => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
             },
             {
               file: 'dynamiccode/api/src/repository/psql/TodoListRepository.java',
-              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+              renameTo: () => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
             },
           );
         }
@@ -239,7 +239,7 @@ export default class extends BaseGenerator {
 
           ${chalk.magentaBright(`Deploy on Azure Container with:`)}
           ${chalk.cyan(`    azd up`)}
-          
+
           ${chalk.magentaBright(`Do you know that Azure Container Apps has built-in support for Java?`)}
           ${chalk.cyan(`    https://learn.microsoft.com/azure/container-apps/java-overview`)}
         `);
