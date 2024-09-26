@@ -157,32 +157,35 @@ export default class extends BaseGenerator {
               },
             ],
           },
-        ]
+        ];
 
-        if(this.todoAppProps.prodDatabaseType == "mongodb") {
+        if (this.todoAppProps.prodDatabaseType == 'mongodb') {
           apiFiles[0].templates.push({
             file: 'dynamiccode/api/src/configuration/MongoDBConfiguration.java',
             renameTo: ctx => `src/api/src/main/java/${packageFolder}/configuration/MongoDBConfiguration.java`,
-          })
-          apiFiles[0].templates.push({
-            file: 'dynamiccode/api/src/repository/mongodb/TodoItemRepository.java',
-            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
-          },
-          {
-            file: 'dynamiccode/api/src/repository/mongodb/TodoListRepository.java',
-            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
-          })
-        } else if(this.todoAppProps.prodDatabaseType == "postgresql") {
-          apiFiles[0].templates.push({
-            file: 'dynamiccode/api/src/repository/psql/TodoItemRepository.java',
-            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
-          },
-          {
-            file: 'dynamiccode/api/src/repository/psql/TodoListRepository.java',
-            renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
-          })
+          });
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/api/src/repository/mongodb/TodoItemRepository.java',
+              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+            },
+            {
+              file: 'dynamiccode/api/src/repository/mongodb/TodoListRepository.java',
+              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+            },
+          );
+        } else if (this.todoAppProps.prodDatabaseType == 'postgresql') {
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/api/src/repository/psql/TodoItemRepository.java',
+              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoItemRepository.java`,
+            },
+            {
+              file: 'dynamiccode/api/src/repository/psql/TodoListRepository.java',
+              renameTo: ctx => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
+            },
+          );
         }
-
 
         await this.writeFiles({
           sections: {
