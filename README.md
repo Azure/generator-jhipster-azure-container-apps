@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://start.jhipster.tech/generate-azure-application">
+    <a>
         <img width="380" height="230" src="logo.png">
     </a>
     <h1>JHipster Azure Container Apps</h1>
@@ -26,6 +26,7 @@ The following prerequisites arer equired to run this application locally. Please
 - [Maven](https://maven.apache.org/download.cgi) - for local build
 
 The following prerequisites arer equired to deploy this application to Azure.
+
 - Azure Subscription: [Try Azure Container Apps for free](https://azure.microsoft.com/products/container-apps#Pricing). You can start with the free tier: The first 180,000 vCPU per second, 360,000 GiB/s, and 2 million requests each month are free.
 - [Docker](https://www.docker.com/)
 - [Azure Developer CLI](https://aka.ms/azd-install)
@@ -78,7 +79,7 @@ npm run dev
 http://localhost:3000/
 ```
 
-## 🎉 How to deploy on Azure for [free]((https://azure.microsoft.com/products/container-apps#Pricing))
+## 🎉 How to deploy on Azure for [free](<(https://azure.microsoft.com/products/container-apps#Pricing)>)
 
 1. Log in to [azd](https://learn.microsoft.com/azure/developer/azure-developer-cli/install-azd). Only required once per-install.
    </br> `azd auth login`
