@@ -5,16 +5,11 @@ import { reactPlugin, getApplicationInsights } from '../services/telemetryServic
 type TelemetryProps = PropsWithChildren<unknown>;
 
 const Telemetry: FC<TelemetryProps> = (props: TelemetryProps): ReactElement => {
+  useEffect(() => {
+    getApplicationInsights();
+  }, []);
 
-    useEffect(() => {
-        getApplicationInsights();
-    }, []);
-
-    return (
-        <TelemetryProvider value={reactPlugin}>
-            {props.children}
-        </TelemetryProvider>
-    );
-}
+  return <TelemetryProvider value={reactPlugin}>{props.children}</TelemetryProvider>;
+};
 
 export default Telemetry;

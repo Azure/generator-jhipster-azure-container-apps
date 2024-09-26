@@ -1,14 +1,14 @@
-import { PlaywrightTestConfig } from "@playwright/test";
-import devices from "@playwright/test";
-import fs from "fs";
-import { join } from "path";
-import dotenv from "dotenv";
+import { PlaywrightTestConfig } from '@playwright/test';
+import devices from '@playwright/test';
+import fs from 'fs';
+import { join } from 'path';
+import dotenv from 'dotenv';
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: ".",
+  testDir: '.',
   /* Maximum time one test can run for. Using 2 hours per test */
   timeout: 2 * 60 * 60 * 1000,
   expect: {
@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -34,15 +34,15 @@ const config: PlaywrightTestConfig = {
     baseURL: getBaseURL(),
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: 'on-first-retry',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
+      name: 'chromium',
       use: {
-        ...devices["Desktop Chrome"],
+        ...devices['Desktop Chrome'],
       },
     },
   ],
@@ -56,26 +56,26 @@ function getBaseURL() {
     if (!environment) {
       // Couldn't find env name in env var, let's try to load from .azure folder
       try {
-        let configfilePath = join(__dirname, "..", ".azure", "config.json");
+        let configfilePath = join(__dirname, '..', '.azure', 'config.json');
         if (fs.existsSync(configfilePath)) {
-          let configFile = JSON.parse(fs.readFileSync(configfilePath, "utf-8"));
-          environment = configFile["defaultEnvironment"];
+          let configFile = JSON.parse(fs.readFileSync(configfilePath, 'utf-8'));
+          environment = configFile['defaultEnvironment'];
         }
       } catch (err) {
-        console.log("Unable to load default environment: " + err);
+        console.log('Unable to load default environment: ' + err);
       }
     }
 
     if (environment) {
-      let envPath = join(__dirname, "..", ".azure", environment, ".env");
-      console.log("Loading env from: " + envPath);
+      let envPath = join(__dirname, '..', '.azure', environment, '.env');
+      console.log('Loading env from: ' + envPath);
       dotenv.config({ path: envPath });
       return process.env.REACT_APP_WEB_BASE_URL;
     }
   }
 
-  let baseURL = process.env.REACT_APP_WEB_BASE_URL || "http://localhost:3000";
-  console.log("baseUrl: " + baseURL);
+  let baseURL = process.env.REACT_APP_WEB_BASE_URL || 'http://localhost:3000';
+  console.log('baseUrl: ' + baseURL);
   return baseURL;
 }
 

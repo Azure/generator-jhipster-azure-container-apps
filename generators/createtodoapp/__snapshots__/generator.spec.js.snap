@@ -8,58 +8,43 @@ exports[`SubGenerator createtodoapp of azure-container-apps JHipster blueprint >
   ".gitattributes": {
     "stateCleared": "modified",
   },
-  ".github/CODE_OF_CONDUCT.md": {
-    "stateCleared": "modified",
-  },
-  ".github/ISSUE_TEMPLATE.md": {
-    "stateCleared": "modified",
-  },
-  ".github/PULL_REQUEST_TEMPLATE.md": {
-    "stateCleared": "modified",
-  },
   ".github/workflows/azure-dev.yml": {
     "stateCleared": "modified",
   },
-  ".github/workflows/build-with-maven.yml": {
-    "stateCleared": "modified",
-  },
-  ".github/workflows/create-release.yml": {
-    "stateCleared": "modified",
-  },
-  ".github/workflows/docker-image.yml": {
+  ".github/workflows/terraform/azure-dev.yml": {
     "stateCleared": "modified",
   },
   ".gitignore": {
     "stateCleared": "modified",
   },
-  ".mvn/wrapper/maven-wrapper.jar": {
+  ".vscode/extensions.json": {
     "stateCleared": "modified",
   },
-  ".mvn/wrapper/maven-wrapper.properties": {
+  ".vscode/launch.json": {
+    "stateCleared": "modified",
+  },
+  ".vscode/tasks.json": {
     "stateCleared": "modified",
   },
   ".yo-rc.json": {
     "stateCleared": "modified",
   },
-  "CHANGELOG.md": {
-    "stateCleared": "modified",
-  },
-  "CONTRIBUTING.md": {
-    "stateCleared": "modified",
-  },
-  "Dockerfile": {
-    "stateCleared": "modified",
-  },
   "LICENSE": {
     "stateCleared": "modified",
   },
-  "LICENSE.md": {
-    "stateCleared": "modified",
-  },
-  "NOTICE.txt": {
+  "OPTIONAL_FEATURES.md": {
     "stateCleared": "modified",
   },
   "README.md": {
+    "stateCleared": "modified",
+  },
+  "assets/resources-with-apim.png": {
+    "stateCleared": "modified",
+  },
+  "assets/resources.png": {
+    "stateCleared": "modified",
+  },
+  "assets/urls.png": {
     "stateCleared": "modified",
   },
   "assets/web.png": {
@@ -68,160 +53,163 @@ exports[`SubGenerator createtodoapp of azure-container-apps JHipster blueprint >
   "azure.yaml": {
     "stateCleared": "modified",
   },
-  "client/Dockerfile": {
-    "stateCleared": "modified",
-  },
-  "client/README.md": {
-    "stateCleared": "modified",
-  },
-  "client/entrypoint.js": {
-    "stateCleared": "modified",
-  },
-  "client/entrypoint.sh": {
-    "stateCleared": "modified",
-  },
-  "client/nginx/nginx.conf": {
-    "stateCleared": "modified",
-  },
-  "client/package-lock.json": {
-    "stateCleared": "modified",
-  },
-  "client/package.json": {
-    "stateCleared": "modified",
-  },
-  "client/pom.xml": {
-    "stateCleared": "modified",
-  },
-  "client/public/favicon.ico": {
-    "stateCleared": "modified",
-  },
-  "client/public/index.html": {
-    "stateCleared": "modified",
-  },
-  "client/public/manifest.json": {
-    "stateCleared": "modified",
-  },
-  "client/public/web.config": {
-    "stateCleared": "modified",
-  },
-  "client/src/@types/window.d.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/App.css": {
-    "stateCleared": "modified",
-  },
-  "client/src/App.test.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/App.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/actions/actionCreators.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/actions/common.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/actions/itemActions.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/actions/listActions.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/telemetry.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/telemetryContext.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/todoContext.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/todoItemDetailPane.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/todoItemListPane.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/components/todoListMenu.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/config/index.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/index.css": {
-    "stateCleared": "modified",
-  },
-  "client/src/index.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/layout/header.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/layout/layout.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/layout/sidebar.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/models/applicationState.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/models/index.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/models/todoItem.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/models/todoList.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/pages/homePage.tsx": {
-    "stateCleared": "modified",
-  },
-  "client/src/react-app-env.d.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/reducers/index.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/reducers/listsReducer.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/reducers/selectedItemReducer.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/reducers/selectedListReducer.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/reportWebVitals.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/services/itemService.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/services/listService.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/services/restService.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/services/telemetryService.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/setupTests.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/ux/styles.ts": {
-    "stateCleared": "modified",
-  },
-  "client/src/ux/theme.ts": {
-    "stateCleared": "modified",
-  },
-  "client/tsconfig.json": {
-    "stateCleared": "modified",
-  },
   "infra/abbreviations.json": {
+    "stateCleared": "modified",
+  },
+  "infra/app/api.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/app/apim-api-policy.xml": {
+    "stateCleared": "modified",
+  },
+  "infra/app/apim-api.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/app/db.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/app/web.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/ai/cognitiveservices.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/ai/hub-dependencies.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/ai/hub.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/ai/project.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/config/configstore.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/cosmos-account.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/mongo/cosmos-mongo-account.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/mongo/cosmos-mongo-db.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/sql/cosmos-sql-account.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/sql/cosmos-sql-db.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/sql/cosmos-sql-role-assign.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/cosmos/sql/cosmos-sql-role-def.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/mysql/flexibleserver.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/postgresql/flexibleserver.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/database/sqlserver/sqlserver.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/gateway/apim.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/ai-environment.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/aks-agent-pool.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/aks-managed-cluster.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/aks.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/appservice-appsettings.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/appservice.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/appserviceplan.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/container-app-upsert.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/container-app.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/container-apps-environment.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/container-apps.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/container-registry.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/functions.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/host/staticwebapp.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/monitor/applicationinsights-dashboard.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/monitor/applicationinsights.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/monitor/loganalytics.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/monitor/monitoring.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/networking/cdn-endpoint.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/networking/cdn-profile.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/networking/cdn.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/search/search-services.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/aks-managed-cluster-access.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/configstore-access.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/keyvault-access.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/keyvault-secret.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/keyvault.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/registry-access.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/security/role.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/storage/storage-account.bicep": {
+    "stateCleared": "modified",
+  },
+  "infra/core/testing/loadtesting.bicep": {
     "stateCleared": "modified",
   },
   "infra/main.bicep": {
@@ -230,61 +218,256 @@ exports[`SubGenerator createtodoapp of azure-container-apps JHipster blueprint >
   "infra/main.parameters.json": {
     "stateCleared": "modified",
   },
-  "infra/modules/postgresql/flexibleserver.bicep": {
+  "src/api/.mvn/wrapper/maven-wrapper.jar": {
     "stateCleared": "modified",
   },
-  "infra/modules/springapps/springappsConsumption.bicep": {
+  "src/api/.mvn/wrapper/maven-wrapper.properties": {
     "stateCleared": "modified",
   },
-  "infra/modules/springapps/springappsStandard.bicep": {
+  "src/api/.openapi-generator/FILES": {
     "stateCleared": "modified",
   },
-  "mvnw": {
+  "src/api/.openapi-generator/VERSION": {
     "stateCleared": "modified",
   },
-  "mvnw.cmd": {
+  "src/api/.openapi-generator/openapi.yaml-default.sha256": {
     "stateCleared": "modified",
   },
-  "pom.xml": {
+  "src/api/Dockerfile": {
     "stateCleared": "modified",
   },
-  "web/README.md": {
+  "src/api/README.md": {
     "stateCleared": "modified",
   },
-  "web/pom.xml": {
+  "src/api/mvnw": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/SimpleTodoApplication.java": {
+  "src/api/mvnw.cmd": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/configuration/RFC3339DateFormat.java": {
+  "src/api/openapi.yaml": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/configuration/WebConfiguration.java": {
+  "src/api/package-lock.json": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/model/TodoItem.java": {
+  "src/api/package.json": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/model/TodoList.java": {
+  "src/api/pom.xml": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/model/TodoState.java": {
+  "src/api/src/main/java/com/mycompany/myapp/SimpleTodoApplication.java": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/repository/TodoItemRepository.java": {
+  "src/api/src/main/java/com/mycompany/myapp/api/ApiUtil.java": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/repository/TodoListRepository.java": {
+  "src/api/src/main/java/com/mycompany/myapp/api/ItemsApi.java": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/web/HomeController.java": {
+  "src/api/src/main/java/com/mycompany/myapp/api/ListsApi.java": {
     "stateCleared": "modified",
   },
-  "web/src/main/java/com/mycompany/myapp/web/TodoListsController.java": {
+  "src/api/src/main/java/com/mycompany/myapp/configuration/RFC3339DateFormat.java": {
     "stateCleared": "modified",
   },
-  "web/src/main/resources/application.yml": {
+  "src/api/src/main/java/com/mycompany/myapp/configuration/StringToTodoStateConverter.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/configuration/WebConfiguration.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/controller/TodoItemsController.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/controller/TodoListsController.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/model/TodoItem.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/model/TodoList.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/model/TodoState.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/repository/TodoItemRepository.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/java/com/mycompany/myapp/repository/TodoListRepository.java": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/resources/application-cloud.properties": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/resources/application-local.properties": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/resources/application.properties": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/main/resources/applicationinsights.json": {
+    "stateCleared": "modified",
+  },
+  "src/api/src/test/java/com/mycompany/myapp/SimpleTodoApplicationTests.java": {
+    "stateCleared": "modified",
+  },
+  "src/web/.dockerignore": {
+    "stateCleared": "modified",
+  },
+  "src/web/.eslintrc.cjs": {
+    "stateCleared": "modified",
+  },
+  "src/web/Dockerfile": {
+    "stateCleared": "modified",
+  },
+  "src/web/README.md": {
+    "stateCleared": "modified",
+  },
+  "src/web/index.html": {
+    "stateCleared": "modified",
+  },
+  "src/web/nginx/nginx.conf": {
+    "stateCleared": "modified",
+  },
+  "src/web/package-lock.json": {
+    "stateCleared": "modified",
+  },
+  "src/web/package.json": {
+    "stateCleared": "modified",
+  },
+  "src/web/public/favicon.ico": {
+    "stateCleared": "modified",
+  },
+  "src/web/public/manifest.json": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/@types/window.d.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/App.css": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/App.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/actions/actionCreators.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/actions/common.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/actions/itemActions.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/actions/listActions.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/telemetry.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/telemetryContext.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/telemetryWithAppInsights.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/todoContext.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/todoItemDetailPane.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/todoItemListPane.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/components/todoListMenu.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/config/index.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/index.css": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/index.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/layout/header.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/layout/layout.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/layout/sidebar.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/models/applicationState.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/models/index.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/models/todoItem.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/models/todoList.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/pages/homePage.tsx": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/react-app-env.d.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/reducers/index.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/reducers/listsReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/reducers/selectedItemReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/reducers/selectedListReducer.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/reportWebVitals.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/services/itemService.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/services/listService.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/services/restService.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/services/telemetryService.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/setupTests.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/ux/styles.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/src/ux/theme.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/tsconfig.json": {
+    "stateCleared": "modified",
+  },
+  "src/web/tsconfig.node.json": {
+    "stateCleared": "modified",
+  },
+  "src/web/vite.config.ts": {
+    "stateCleared": "modified",
+  },
+  "src/web/web.config": {
     "stateCleared": "modified",
   },
 }

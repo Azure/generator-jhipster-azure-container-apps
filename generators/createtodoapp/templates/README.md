@@ -1,23 +1,24 @@
 ---
 page_type: sample
 languages:
-- azdeveloper
-- java
-- bicep
-- typescript
-- html
+  - azdeveloper
+  - java
+  - bicep
+  - typescript
+  - html
 products:
-- azure
-- azure-cosmos-db
-- azure-container-apps
-- azure-container-registry
-- azure-monitor
-- azure-pipelines
-- ms-build-openjdk
+  - azure
+  - azure-cosmos-db
+  - azure-container-apps
+  - azure-container-registry
+  - azure-monitor
+  - azure-pipelines
+  - ms-build-openjdk
 urlFragment: todo-java-mongo-aca
 name: Containerized React Web App with Java API and MongoDB on Azure
 description: A complete ToDo app on Azure Container Apps with Java API and Azure Cosmos API for MongoDB for storage. Uses Azure Developer CLI (azd) to build, deploy, and monitor
 ---
+
 <!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
 
 # Containerized React Web App with Java API and MongoDB on Azure
@@ -34,6 +35,7 @@ Let's jump in and get this up and running in Azure. When you are finished, you w
 <sup>Screenshot of the deployed ToDo app</sup>
 
 ### Prerequisites
+
 > This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, you can sign up for a [free account here](https://azure.microsoft.com/free/). Make sure you have contributor role to the Azure subscription.
 
 The following prerequisites are required to use this application. Please ensure that you have them all installed locally.
@@ -44,6 +46,7 @@ The following prerequisites are required to use this application. Please ensure 
 - [Docker](https://docs.docker.com/get-docker/)
 
 ### Quickstart
+
 To learn how to get started with any template, follow the steps in [this quickstart](https://learn.microsoft.com/azure/developer/azure-developer-cli/get-started?tabs=localinstall&pivots=programming-language-java) with this template(`Azure-Samples/todo-java-mongo-aca`).
 
 This quickstart will show you how to authenticate on Azure, initialize using a template, provision infrastructure and deploy code on Azure via the following commands:
@@ -52,7 +55,7 @@ This quickstart will show you how to authenticate on Azure, initialize using a t
 # Log in to azd. Only required once per-install.
 azd auth login
 
-# First-time project setup. Initialize a project in the current directory, using this template. 
+# First-time project setup. Initialize a project in the current directory, using this template.
 azd init --template Azure-Samples/todo-java-mongo-aca
 
 # Provision and deploy to Azure
@@ -94,6 +97,7 @@ Here's a high level architecture diagram that illustrates these components. Noti
 !["Application architecture diagram"](assets/resources.png)
 
 ### Cost of provisioning and deploying this template
+
 This template provisions resources to an Azure subscription that you will select upon provisioning them. Refer to the [Pricing calculator for Microsoft Azure](https://azure.microsoft.com/pricing/calculator/) to estimate the cost you might incur when this template is running on Azure and, if needed, update the included Azure resource definitions found in `infra/main.bicep` to suit your needs.
 
 ### Application Code
@@ -106,13 +110,13 @@ At this point, you have a complete application deployed on Azure. But there is m
 
 > Note: Needs to manually install [setup-azd extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azd) for Azure DevOps (azdo).
 
-- [`azd pipeline config`](https://learn.microsoft.com/azure/developer/azure-developer-cli/configure-devops-pipeline?tabs=GitHub) - to configure a CI/CD pipeline (using GitHub Actions or Azure DevOps) to deploy your application whenever code is pushed to the main branch. 
+- [`azd pipeline config`](https://learn.microsoft.com/azure/developer/azure-developer-cli/configure-devops-pipeline?tabs=GitHub) - to configure a CI/CD pipeline (using GitHub Actions or Azure DevOps) to deploy your application whenever code is pushed to the main branch.
 
 - [`azd monitor`](https://learn.microsoft.com/azure/developer/azure-developer-cli/monitor-your-app) - to monitor the application and quickly navigate to the various Application Insights dashboards (e.g. overview, live metrics, logs)
 
 - [Run and Debug Locally](https://learn.microsoft.com/azure/developer/azure-developer-cli/debug?pivots=ide-vs-code) - using Visual Studio Code and the Azure Developer CLI extension
 
-- [`azd down`](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-down) - to delete all the Azure resources created with this template 
+- [`azd down`](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-down) - to delete all the Azure resources created with this template
 
 - [Enable optional features, like APIM](./OPTIONAL_FEATURES.md) - for enhanced backend API protection and observability
 

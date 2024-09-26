@@ -16,67 +16,64 @@ import TodoItemDetailPane from '../components/todoItemDetailPane';
 import { bindActionCreators } from '../actions/actionCreators';
 
 const Layout: FC = (): ReactElement => {
-    const navigate = useNavigate();
-    const appContext = useContext<AppContext>(TodoContext)
-    const actions = useMemo(() => ({
-        lists: bindActionCreators(listActions, appContext.dispatch) as unknown as ListActions,
-        items: bindActionCreators(itemActions, appContext.dispatch) as unknown as ItemActions,
-    }), [appContext.dispatch]);
+  const navigate = useNavigate();
+  const appContext = useContext<AppContext>(TodoContext);
+  const actions = useMemo(
+    () => ({
+      lists: bindActionCreators(listActions, appContext.dispatch) as unknown as ListActions,
+      items: bindActionCreators(itemActions, appContext.dispatch) as unknown as ItemActions,
+    }),
+    [appContext.dispatch],
+  );
 
-    // Load initial lists
-    useEffect(() => {
-        if (!appContext.state.lists) {
-            actions.lists.list();
-        }
-    }, [actions.lists, appContext.state.lists]);
-
-    const onListCreated = async (list: TodoList) => {
-        const newList = await actions.lists.save(list);
-        navigate(`/lists/${newList.id}`);
+  // Load initial lists
+  useEffect(() => {
+    if (!appContext.state.lists) {
+      actions.lists.list();
     }
+  }, [actions.lists, appContext.state.lists]);
 
-    const onItemEdited = (item: TodoItem) => {
-        actions.items.save(item.listId, item);
-        actions.items.select(undefined);
-        navigate(`/lists/${item.listId}`);
+  const onListCreated = async (list: TodoList) => {
+    const newList = await actions.lists.save(list);
+    navigate(`/lists/${newList.id}`);
+  };
+
+  const onItemEdited = (item: TodoItem) => {
+    actions.items.save(item.listId, item);
+    actions.items.select(undefined);
+    navigate(`/lists/${item.listId}`);
+  };
+
+  const onItemEditCancel = () => {
+    if (appContext.state.selectedList) {
+      actions.items.select(undefined);
+      navigate(`/lists/${appContext.state.selectedList.id}`);
     }
+  };
 
-    const onItemEditCancel = () => {
-        if (appContext.state.selectedList) {
-            actions.items.select(undefined);
-            navigate(`/lists/${appContext.state.selectedList.id}`);
-        }
-    }
-
-    return (
-        <Stack styles={rootStackStyles}>
-            <Stack.Item styles={headerStackStyles}>
-                <Header></Header>
-            </Stack.Item>
-            <Stack horizontal grow={1}>
-                <Stack.Item styles={sidebarStackStyles}>
-                    <Sidebar
-                        selectedList={appContext.state.selectedList}
-                        lists={appContext.state.lists}
-                        onListCreate={onListCreated} />
-                </Stack.Item>
-                <Stack.Item grow={1} styles={mainStackStyles}>
-                    <Routes>
-                        <Route path="/lists/:listId/items/:itemId" element={<HomePage />} />
-                        <Route path="/lists/:listId" element={<HomePage />} />
-                        <Route path="/lists" element={<HomePage />} />
-                        <Route path="/" element={<HomePage />} />
-                    </Routes>
-                </Stack.Item>
-                <Stack.Item styles={sidebarStackStyles}>
-                    <TodoItemDetailPane
-                        item={appContext.state.selectedItem}
-                        onEdit={onItemEdited}
-                        onCancel={onItemEditCancel} />
-                </Stack.Item>
-            </Stack>
-        </Stack>
-    );
-}
+  return (
+    <Stack styles={rootStackStyles}>
+      <Stack.Item styles={headerStackStyles}>
+        <Header></Header>
+      </Stack.Item>
+      <Stack horizontal grow={1}>
+        <Stack.Item styles={sidebarStackStyles}>
+          <Sidebar selectedList={appContext.state.selectedList} lists={appContext.state.lists} onListCreate={onListCreated} />
+        </Stack.Item>
+        <Stack.Item grow={1} styles={mainStackStyles}>
+          <Routes>
+            <Route path="/lists/:listId/items/:itemId" element={<HomePage />} />
+            <Route path="/lists/:listId" element={<HomePage />} />
+            <Route path="/lists" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </Stack.Item>
+        <Stack.Item styles={sidebarStackStyles}>
+          <TodoItemDetailPane item={appContext.state.selectedItem} onEdit={onItemEdited} onCancel={onItemEditCancel} />
+        </Stack.Item>
+      </Stack>
+    </Stack>
+  );
+};
 
 export default Layout;
