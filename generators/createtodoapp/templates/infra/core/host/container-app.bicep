@@ -41,6 +41,9 @@ param daprAppId string = containerName
 @description('Enable Dapr')
 param daprEnabled bool = false
 
+@description('Whether this is a Java app. Java app will have Java language stack enabled.')
+param isJava bool = false
+
 @description('The environment variables for the container')
 param env array = []
 
@@ -93,13 +96,13 @@ module containerRegistryAccess '../security/registry-access.bicep' = if (usePriv
   }
 }
 
-resource app 'Microsoft.App/containerApps@2023-05-02-preview' = {
+resource app 'Microsoft.App/containerApps@2024-02-02-preview' = {
   name: name
   location: location
   tags: tags
   // It is critical that the identity is granted ACR pull access before the app is created
   // otherwise the container app will throw a provision error
-  // This also forces us to use an user assigned managed identity since there would no way to 
+  // This also forces us to use an user assigned managed identity since there would no way to
   // provide the system assigned identity with the ACR pull access before the app is created
   dependsOn: usePrivateRegistry ? [ containerRegistryAccess ] : []
   identity: {
@@ -124,6 +127,11 @@ resource app 'Microsoft.App/containerApps@2023-05-02-preview' = {
         appProtocol: daprAppProtocol
         appPort: ingressEnabled ? targetPort : 0
       } : { enabled: false }
+      runtime: isJava ? {
+        java: {
+          enableMetrics: true
+        }
+      } : null
       secrets: [for secret in items(secrets): {
         name: secret.key
         value: secret.value
