@@ -57,7 +57,7 @@ To run locally:
 
 ```bash
 mvn clean package -DskipTests
-java -jar web/target/${artifactName}-0.0.1-SNAPSHOT.jar
+java -jar target/{artifactname}-0.0.1-SNAPSHOT.jar
 ```
 
 - The back-end can be accessed at:
