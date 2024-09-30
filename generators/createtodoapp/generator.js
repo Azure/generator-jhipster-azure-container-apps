@@ -230,11 +230,11 @@ export default class extends BaseGenerator {
           ${chalk.cyan(`    back-end: "http://localhost:3100/")`)}
           ${chalk.cyan(`    You can build manually under src/api with:`)}
           ${chalk.cyan(`    mvn clean package -DskipTests`)}
-          ${chalk.cyan(`    java -jar web/target/${artifactName}-0.0.1-SNAPSHOT.jar`)}
+          ${chalk.cyan(`    java -jar src/api/target/{artifactname}-0.0.1-SNAPSHOT.jar`)}
 
           ${chalk.cyan(`    front-end: "http://localhost:3000/")`)}
           ${chalk.cyan(`    You can build manually under src/web with:`)}
-          ${chalk.cyan(`    npm run ci`)}
+          ${chalk.cyan(`    npm install`)}
           ${chalk.cyan(`    npm run dev`)}
 
           ${chalk.magentaBright(`Deploy on Azure Container with:`)}
