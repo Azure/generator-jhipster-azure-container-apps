@@ -69,7 +69,7 @@ http://localhost:3100/
 - For front-end, you can build manually under src/web with:
 
 ```bash
-npm run ci
+npm install
 npm run dev
 ```
 
