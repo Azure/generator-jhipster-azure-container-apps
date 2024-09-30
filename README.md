@@ -86,6 +86,7 @@ http://localhost:3000/
    - If you are on Windows, install [powershell](https://learn.microsoft.com/powershell/scripting/install/installing-powershell-on-windows)
 1. Navigate to the generated project directory and run
    </br>`azd up`
+   **Make sure your docker is running when executing this.**
 
 After the command is executed, you can see the following log signs that the deployment was successful.
 
