@@ -57,7 +57,10 @@ param webApiBaseUrl string = ''
 
 var abbrs = loadJsonContent('./abbreviations.json')
 var resourceToken = toLower(uniqueString(subscription().id, environmentName, location))
-var tags = { 'azd-env-name': environmentName }
+var tags = {
+  'azd-env-name': environmentName
+  'jhipster': 'true'
+}
 var apiContainerAppNameOrDefault = '${abbrs.appContainerApps}web-${resourceToken}'
 var corsAcaUrl = 'https://${apiContainerAppNameOrDefault}.${containerApps.outputs.defaultDomain}'
 
