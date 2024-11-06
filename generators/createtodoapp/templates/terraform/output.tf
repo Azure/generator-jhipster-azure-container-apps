@@ -60,11 +60,3 @@ output "SERVICE_API_NAME" {
 output "SERVICE_WEB_NAME" {
   value = module.container_app_web.CONTAINER_APP_NAME
 }
-
-output "AZURE_PSQL_URL" {
-  value = module.postgresql.AZURE_POSTGRESQL_SPRING_DATASOURCE_URL
-}
-
-output "AZURE_PSQL_CUSTOM_USERNAME" {
-  value = module.postgresql.AZURE_POSTGRESQL_SPRING_DATASOURCE_URL
-}

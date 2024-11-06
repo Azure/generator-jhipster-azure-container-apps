@@ -4,7 +4,7 @@ variable "location" {
 }
 
 variable "environment_name" {
-  description = "The name of the azd environment to be deployed"
+  description = "The name of resource group"
   type        = string
 }
 
