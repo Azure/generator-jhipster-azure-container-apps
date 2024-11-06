@@ -217,6 +217,17 @@ export default class extends BaseGenerator {
               renameTo: () => `terraform/main.tf`,
             },
           );
+          // deployment scripts
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/deploy.sh',
+              renameTo: () => `deploy.sh`,
+            },
+            {
+              file: 'dynamiccode/deploy.ps1',
+              renameTo: () => `deploy.ps1`,
+            }
+          );
         } else if(this.todoAppProps.infraType.length == 1) {
           if(this.todoAppProps.infraType[0] == "bicep") {
             // bicep
@@ -243,6 +254,17 @@ export default class extends BaseGenerator {
               },
             );
           }
+          // deployment scripts
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/deploy.sh',
+              renameTo: () => `deploy.sh`,
+            },
+            {
+              file: 'dynamiccode/deploy.ps1',
+              renameTo: () => `deploy.ps1`,
+            }
+          );
         }
 
         await this.writeFiles({
