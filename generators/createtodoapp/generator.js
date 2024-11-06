@@ -36,6 +36,13 @@ export default class extends BaseGenerator {
             choices: ['postgresql', 'mongodb'],
             default: 'postgresql',
           },
+          {
+            type: 'checkbox',
+            name: 'infraType',
+            message: 'Do you want to enable Bicep or Terraform for deployment?',
+            choices: ['bicep', 'terraform'],
+            default: ['bicep', 'terraform'],
+          },
         ];
 
         const props = await this.prompt(prompts, this.config);
@@ -185,6 +192,57 @@ export default class extends BaseGenerator {
               renameTo: () => `src/api/src/main/java/${packageFolder}/repository/TodoListRepository.java`,
             },
           );
+        }
+
+        if(this.todoAppProps.infraType.length == 2) {
+          // bicep
+          this.fs.copy(this.templatePath('infra/app'), this.destinationPath('bicep/app/'));
+          this.fs.copy(this.templatePath('infra/core'), this.destinationPath('bicep/core/'));
+          this.fs.copy(this.templatePath('infra/abbreviations.json'), this.destinationPath('bicep/abbreviations.json'));
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/bicep/main.bicep',
+              renameTo: () => `bicep/main.bicep`,
+            },
+            {
+              file: 'dynamiccode/infra/db.bicep',
+              renameTo: () => `bicep/app/db.bicep`,
+            }
+          );
+          // terraform
+          this.fs.copy(this.templatePath('terraform/'), this.destinationPath('terraform/'));
+          apiFiles[0].templates.push(
+            {
+              file: 'dynamiccode/terraform/main.tf',
+              renameTo: () => `terraform/main.tf`,
+            },
+          );
+        } else if(this.todoAppProps.infraType.length == 1) {
+          if(this.todoAppProps.infraType[0] == "bicep") {
+            // bicep
+            this.fs.copy(this.templatePath('infra/app'), this.destinationPath('bicep/app/'));
+            this.fs.copy(this.templatePath('infra/core'), this.destinationPath('bicep/core/'));
+            this.fs.copy(this.templatePath('infra/abbreviations.json'), this.destinationPath('bicep/abbreviations.json'));
+            apiFiles[0].templates.push(
+              {
+                file: 'dynamiccode/bicep/main.bicep',
+                renameTo: () => `bicep/main.bicep`,
+              },
+              {
+                file: 'dynamiccode/infra/db.bicep',
+                renameTo: () => `bicep/app/db.bicep`,
+              }
+            );
+          } else if(this.todoAppProps.infraType[0] == "terraform") {
+            // terraform
+            this.fs.copy(this.templatePath('terraform/'), this.destinationPath('terraform/'));
+            apiFiles[0].templates.push(
+              {
+                file: 'dynamiccode/terraform/main.tf',
+                renameTo: () => `terraform/main.tf`,
+              },
+            );
+          }
         }
 
         await this.writeFiles({

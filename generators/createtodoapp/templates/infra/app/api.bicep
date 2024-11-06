@@ -31,6 +31,7 @@ module app '../core/host/container-app-upsert.bicep' = {
   dependsOn: [ apiKeyVaultAccess ]
   params: {
     name: name
+    containerName: name
     location: location
     tags: union(tags, { 'azd-service-name': serviceName })
     identityType: 'UserAssigned'
