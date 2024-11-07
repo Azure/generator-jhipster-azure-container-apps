@@ -115,7 +115,6 @@ module api './app/api.bicep' = {
   scope: rg
   params: {
     name: !empty(apiContainerAppName) ? apiContainerAppName : '${abbrs.appContainerApps}api-${resourceToken}'
-    containerName: name
     location: location
     tags: tags
     identityName: '${abbrs.managedIdentityUserAssignedIdentities}api-${resourceToken}'
