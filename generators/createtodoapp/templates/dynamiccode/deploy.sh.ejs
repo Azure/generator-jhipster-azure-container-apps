@@ -73,6 +73,10 @@ then
 
     `rm ./src/web/.env.local`
 
+    webFqdn=`az containerapp show --name ca-web-${resourceName} --resource-group $3 --subscription $1 --query properties.configuration.ingress.fqdn -o tsv`
+
+    echo "Deployment is done, please check via: https://$webFqdn"
+
 else
     echo "required 3 parameters, 1st is subscriptionid, 2nd is region and 3th is resourcegroup name."
 fi

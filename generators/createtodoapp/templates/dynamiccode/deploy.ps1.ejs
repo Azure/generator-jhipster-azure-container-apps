@@ -24,14 +24,14 @@ $resourceName = $acrName.Substring(2, 13)
 $loginServer = "cr$resourceName.azurecr.io"
 Write-Host "acr login server is: $loginServer"
 Write-Host "login acr..."
-az acr login --name $loginServer --resource-group $resourceGroup --subscription $subscriptionId | Out-Null
+az acr login --name $loginServer --resource-group $resourceGroup --subscription $subscriptionId
 
 Write-Host "=========== Projects build ==========="
 
 $suffix = Get-Date -Format "yyyyMMddHHmmss"
 
 Write-Host "build api project..."
-docker build -t "$loginServer/backend:$suffix" ./src/api/ | Out-Null
+docker build -t "$loginServer/backend:$suffix" ./src/api/
 if ($LASTEXITCODE -ne 0) {
     Write-Host "build failed"
     exit 1
@@ -90,3 +90,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 Remove-Item -Path "./src/web/.env.local" -Force
+
+$webFqdn = az containerapp show --name "ca-web-$resourceName" --resource-group $resourceGroup --subscription $subscriptionId --query properties.configuration.ingress.fqdn -o tsv
+
+Write-Host "Deployment is done, please check via: https://$webFqdn"
