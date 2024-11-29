@@ -194,7 +194,7 @@ export default class extends BaseGenerator {
           );
         }
 
-        if(this.todoAppProps.infraType.length == 2) {
+        if(this.todoAppProps.iaCTools.length == 2) {
           // bicep
           this.fs.copy(this.templatePath('infra/app'), this.destinationPath('bicep/app/'));
           this.fs.copy(this.templatePath('infra/core'), this.destinationPath('bicep/core/'));
@@ -228,8 +228,8 @@ export default class extends BaseGenerator {
               renameTo: () => `deploy.ps1`,
             }
           );
-        } else if(this.todoAppProps.infraType.length == 1) {
-          if(this.todoAppProps.infraType[0] == "bicep") {
+        } else if(this.todoAppProps.iaCTools.length == 1) {
+          if(this.todoAppProps.iaCTools[0] == "bicep") {
             // bicep
             this.fs.copy(this.templatePath('infra/app'), this.destinationPath('bicep/app/'));
             this.fs.copy(this.templatePath('infra/core'), this.destinationPath('bicep/core/'));
@@ -244,7 +244,7 @@ export default class extends BaseGenerator {
                 renameTo: () => `bicep/app/db.bicep`,
               }
             );
-          } else if(this.todoAppProps.infraType[0] == "terraform") {
+          } else if(this.todoAppProps.iaCTools[0] == "terraform") {
             // terraform
             this.fs.copy(this.templatePath('terraform/'), this.destinationPath('terraform/'));
             apiFiles[0].templates.push(
