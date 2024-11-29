@@ -38,8 +38,8 @@ export default class extends BaseGenerator {
           },
           {
             type: 'checkbox',
-            name: 'infraType',
-            message: 'Do you want to enable Bicep or Terraform for deployment?',
+            name: 'iaCTools',
+            message: 'Do you want to use Bicep or Terraform as infrastructure as code tool?',
             choices: ['bicep', 'terraform'],
             default: ['bicep', 'terraform'],
           },
