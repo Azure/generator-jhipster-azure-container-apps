@@ -237,7 +237,7 @@ export default class extends BaseGenerator {
           ${chalk.cyan(`    npm run dev`)}
           ${chalk.whiteBright(`    Front-end url: http://localhost:3000/`)}
 
-          ${chalk.magentaBright(`Deploy on Azure Container with:`)}
+          ${chalk.magentaBright(`Deploy on Azure Container Apps with:`)}
           ${chalk.cyan(`    azd up`)}
 
           ${chalk.magentaBright(`Do you know that Azure Container Apps has built-in support for Java?`)}
