@@ -1,6 +1,6 @@
 <div align="center">
     <a>
-        <img width="380" height="230" src="logo.png">
+        <img width="380" height="230" src="https://raw.githubusercontent.com/Azure/generator-jhipster-azure-container-apps/main/logo.png">
     </a>
     <h1>JHipster Azure Container Apps</h1>
 </div>
