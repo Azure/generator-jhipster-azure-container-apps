@@ -36,6 +36,7 @@ param psqlAdminPassword string
 
 param dbUrlKey string = 'SPRING-DATASOURCE-URL'
 param dbUserKey string = 'SPRING-DATASOURCE-USERNAME'
+@secure()
 param dbPasswordKey string = 'SPRING-DATASOURCE-PASSWORD'
 
 module psql '../core/database/postgresql/flexibleserver.bicep' = {
