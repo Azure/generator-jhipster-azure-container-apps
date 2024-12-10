@@ -133,7 +133,7 @@ The output **Deploying service api** and **Deploying service web** are the endpo
 
 Azure Container Apps has built-in Java support to enhance your Java applications with automatic memory fitting, diagnostics and managed spring componnets, [learn more](https://learn.microsoft.com/azure/container-apps/java-overview).
 You can easily turn on the Java support feature by clicking on the **manage** of the Development stack and choose **Java** on your overview page.
-![Java Stack](./javastack.png).
+![Java Stack](https://raw.githubusercontent.com/Azure/generator-jhipster-azure-container-apps/main/javastack.png).
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-azure-container-apps.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-azure-container-apps
