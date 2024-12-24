@@ -62,7 +62,7 @@ java -jar target/{artifactname}-0.0.1-SNAPSHOT.jar
 - The back-end can be accessed at:
 
 ```text
-http://localhost:3100/
+http://localhost:8080/
 ```
 
 - For front-end, you can build manually under src/web with:

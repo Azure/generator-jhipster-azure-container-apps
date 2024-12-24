@@ -59,7 +59,7 @@ then
     password=`az acr credential show --resource-group $3 --subscription $1 --name cr${resourceName} --query passwords[0].value -o tsv`
 
     echo "deploy api project..."
-    `az containerapp up --name ca-api-${resourceName} --resource-group $3 --location $2 --environment cae-${resourceName} --image ${loginServer}/backend:${suffix} --target-port 3100 --ingress external --registry-username cr${resourceName} --registry-password ${password} --query properties.configuration.ingress.fqdn`
+    `az containerapp up --name ca-api-${resourceName} --resource-group $3 --location $2 --environment cae-${resourceName} --image ${loginServer}/backend:${suffix} --target-port <%= serverPort %> --ingress external --registry-username cr${resourceName} --registry-password ${password} --query properties.configuration.ingress.fqdn`
     if [ $? -ne 0 ]; then
         echo "deploy failed"
         exit 1

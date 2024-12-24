@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/openjdk/jdk:17-mariner AS build
 
 WORKDIR /workspace/app
-EXPOSE 3100
+EXPOSE <%= serverPort %>
 
 COPY mvnw .
 COPY .mvn .mvn

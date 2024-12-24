@@ -1,17 +1,23 @@
 {
   "generator-jhipster": {
-    "additionalSubGenerators": "createtodoapp",
+    "additionalSubGenerators": "createtodoapp,createaiapp",
     "baseName": "azure-container-apps",
     "cli": true,
     "entities": [],
     "generators": {
       "app": {
         "command": false,
-        "priorities": ["composing"],
+        "priorities": ["prompting", "composing"],
         "sbs": true,
         "written": true
       },
       "createtodoapp": {
+        "command": true,
+        "priorities": ["prompting", "writing", "end"],
+        "sbs": false,
+        "written": true
+      },
+      "createaiapp": {
         "command": true,
         "priorities": ["prompting", "writing", "end"],
         "sbs": false,
