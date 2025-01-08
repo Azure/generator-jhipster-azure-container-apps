@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: spring-petclinic-ai
+metadata:
+  template: spring-petclinic-ai
+
+workflows:
+  up:
+    - azd: provision
+    - azd: package --all
+    - azd: deploy --all
+
+infra:
+  provider: bicep
+  path: infra/bicep
+
+services:
+  petclinic-ai:
+    resourceName: petclinic-ai
+    project: ./
+    host: containerapp
+    language: java
+    docker:
+      registry: ${AZURE_CONTAINER_REGISTRY_ENDPOINT}
+      image: spring-petclinic-ai
+      tag: ${AZD_PROVISION_TIMESTAMP}
+      remoteBuild: true
+
+hooks:
+  postprovision:
+    posix:
+      shell: sh
+      run: ./infra/bicep/hooks/postprovision.sh
+      interactive: true
+      continueOnError: true
+    windows:
+      shell: pwsh
+      run: ./infra/bicep/hooks/postprovision.ps1
+      interactive: true
+      continueOnError: true
+
+  predown:
+    posix:
+      shell: sh
+      run: ./infra/bicep/hooks/predown.sh
+    windows:
+      shell: pwsh
+      run: ./infra/bicep/hooks/predown.ps1
+
+  prepackage:
+    posix:
+      shell: sh
+      run: './mvnw clean package -DskipTests'
+    windows:
+      shell: pwsh
+      run: './mvnw.cmd clean package -DskipTests'
+

@@ -6,6 +6,15 @@ export default class extends BaseGenerator {
   constructor(args, opts, features) {
     super(args, opts, features);
   }
+
+  get [BaseGenerator.CONFIGURING]() {
+    return this.asConfiguringTaskGroup({
+      async configuringTemplateTask() {
+        this.jhipsterConfig.azureApplicationType = "WEB";
+      },
+    });
+  }
+
   get [BaseGenerator.PROMPTING]() {
     return {
       ...super.prompting,
@@ -139,6 +148,14 @@ export default class extends BaseGenerator {
                 renameTo: () => `src/api/pom.xml`,
               },
               {
+                file: 'dynamiccode/web/index.ts',
+                renameTo: () => `src/web/src/config/index.ts`,
+              },
+              {
+                file: 'dynamiccode/api/README.md',
+                renameTo: () => `src/api/README.md`,
+              },
+              {
                 file: 'dynamiccode/api/src/controller/TodoItemsController.java',
                 renameTo: () => `src/api/src/main/java/${packageFolder}/controller/TodoItemsController.java`,
               },
@@ -161,6 +178,10 @@ export default class extends BaseGenerator {
               {
                 file: 'dynamiccode/infra/main.bicep',
                 renameTo: () => `infra/main.bicep`,
+              },
+              {
+                file: 'dynamiccode/infra/api.bicep',
+                renameTo: () => `infra/app/api.bicep`,
               },
             ],
           },
@@ -207,6 +228,10 @@ export default class extends BaseGenerator {
             {
               file: 'dynamiccode/infra/db.bicep',
               renameTo: () => `bicep/app/db.bicep`,
+            },
+            {
+              file: 'dynamiccode/infra/api.bicep',
+              renameTo: () => `bicep/app/api.bicep`,
             }
           );
           // terraform
@@ -242,6 +267,10 @@ export default class extends BaseGenerator {
               {
                 file: 'dynamiccode/infra/db.bicep',
                 renameTo: () => `bicep/app/db.bicep`,
+              },
+              {
+                file: 'dynamiccode/infra/api.bicep',
+                renameTo: () => `bicep/app/api.bicep`,
               }
             );
           } else if(this.todoAppProps.iaCTools[0] == "terraform") {
@@ -303,6 +332,7 @@ export default class extends BaseGenerator {
       ...super.end,
       afterRunHook() {
         const artifactName = this.todoAppProps.dasherizedBaseName + '-web';
+        const port = this.todoAppProps.serverPort;
         this.log(`
           ${chalk.greenBright('The TODO template has been created successfully! 🎉')}
 
@@ -310,7 +340,7 @@ export default class extends BaseGenerator {
           ${chalk.cyan(`    You can build manually under src/api with:`)}
           ${chalk.cyan(`    mvn clean package -DskipTests`)}
           ${chalk.cyan(`    java -jar target/{artifactname}-0.0.1-SNAPSHOT.jar`)}
-          ${chalk.whiteBright(`    Back-end url: http://localhost:3100/`)}
+          ${chalk.whiteBright(`    Back-end url: http://localhost:` + port + `/`)}
 
           ${chalk.cyan(`    You can build manually under src/web with:`)}
           ${chalk.cyan(`    npm install`)}
